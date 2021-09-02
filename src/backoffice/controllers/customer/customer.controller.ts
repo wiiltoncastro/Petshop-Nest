@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+import { CustomerModel } from './../../models/customer.model';
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 
 @Controller('v1/customers')
@@ -15,8 +16,8 @@ export class CustomerController {
     }
 
     @Post()
-    post(@Body() body) {
-        return body;
+    post(@Body() body: CustomerModel) {
+        return body.name;
     }
 
     @Put(':document')
